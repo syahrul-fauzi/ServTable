@@ -7,6 +7,8 @@ import { AuthModule } from './features/auth/auth.module';
 import { BaseModule } from './features/base/base.module';
 import { ChatModule } from './features/chat/chat.module';
 import { CollaboratorModule } from './features/collaborator/collaborator.module';
+import { CommentOpenApiModule } from './features/comment/comment-open-api.module';
+import { DashboardModule } from './features/dashboard/dashboard.module';
 import { ExportOpenApiModule } from './features/export/open-api/export-open-api.module';
 import { FieldOpenApiModule } from './features/field/open-api/field-open-api.module';
 import { HealthModule } from './features/health/health.module';
@@ -16,6 +18,7 @@ import { NextModule } from './features/next/next.module';
 import { NotificationModule } from './features/notification/notification.module';
 import { OAuthModule } from './features/oauth/oauth.module';
 import { PinModule } from './features/pin/pin.module';
+import { PluginModule } from './features/plugin/plugin.module';
 import { SelectionModule } from './features/selection/selection.module';
 import { SettingModule } from './features/setting/setting.module';
 import { ShareModule } from './features/share/share.module';
@@ -55,6 +58,9 @@ export const appModules = {
     SettingModule,
     OAuthModule,
     TrashModule,
+    PluginModule,
+    DashboardModule,
+    CommentOpenApiModule,
   ],
   providers: [InitBootstrapProvider],
 };

@@ -1,5 +1,6 @@
 @import url('@teable/ui-lib/shadcn/global.shadcn.css');
 @import url('nprogress/nprogress.css');
+@import url('@/styles/github-markdown.css');
 
 :root {
   --btn-text-case: none;
@@ -27,4 +28,11 @@ body {
 .height-preserving-container:empty {
   min-height: calc(var(--child-height));
   box-sizing: border-box;
+}
+
+.react-grid-item.react-grid-placeholder {
+  z-index: -1 !important;
+  border-radius: 0.75rem;
+  border-color: hsl(var(--primary)) !important;
+  background-color: hsl(var(--muted-foreground)) !important;
 }

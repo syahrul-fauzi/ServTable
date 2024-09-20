@@ -8,6 +8,7 @@ export enum IdPrefix {
   Field = 'fld',
   View = 'viw',
   Record = 'rec',
+  Comment = 'com',
   Attachment = 'act',
   Choice = 'cho',
 
@@ -37,6 +38,12 @@ export enum IdPrefix {
   Window = 'win',
 
   RecordHistory = 'rhi',
+
+  Plugin = 'plg',
+  PluginInstall = 'pli',
+  PluginUser = 'plu',
+
+  Dashboard = 'dsh',
 }
 
 const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -60,6 +67,10 @@ export function generateViewId() {
 
 export function generateRecordId() {
   return IdPrefix.Record + getRandomString(16);
+}
+
+export function generateCommentId() {
+  return IdPrefix.Comment + getRandomString(16);
 }
 
 export function generateChoiceId() {
@@ -151,4 +162,20 @@ export function generateClientId() {
 
 export function generateRecordHistoryId() {
   return IdPrefix.RecordHistory + getRandomString(24);
+}
+
+export function generatePluginId() {
+  return IdPrefix.Plugin + getRandomString(16);
+}
+
+export function generatePluginInstallId() {
+  return IdPrefix.PluginInstall + getRandomString(16);
+}
+
+export function generatePluginUserId() {
+  return IdPrefix.PluginUser + getRandomString(16);
+}
+
+export function generateDashboardId() {
+  return IdPrefix.Dashboard + getRandomString(12);
 }

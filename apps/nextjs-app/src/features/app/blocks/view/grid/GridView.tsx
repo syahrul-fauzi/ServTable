@@ -8,7 +8,7 @@ import type { IViewBaseProps } from '../types';
 import { GridViewBase } from './GridViewBase';
 
 export const GridView = (props: IViewBaseProps) => {
-  const { recordServerData, recordsServerData, groupPointsServerData } = props;
+  const { recordServerData, recordsServerData, groupPointsServerDataMap } = props;
   const { graphOpen } = useCellGraphStore();
   const isHydrated = useIsHydrated();
 
@@ -18,8 +18,8 @@ export const GridView = (props: IViewBaseProps) => {
         <AggregationProvider>
           <RowCountProvider>
             <GridToolBar />
-            <div className="w-full grow overflow-hidden sm:pl-2">
-              {isHydrated && <GridViewBase groupPointsServerData={groupPointsServerData} />}
+            <div className="w-full grow  sm:pl-2">
+              {isHydrated && <GridViewBase groupPointsServerDataMap={groupPointsServerDataMap} />}
               {graphOpen && <DynamicCellGraph />}
             </div>
           </RowCountProvider>
