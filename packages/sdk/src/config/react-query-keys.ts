@@ -9,6 +9,7 @@ import type {
   ResourceType,
   ListSpaceCollaboratorRo,
   IGetRecordsRo,
+  ListBaseCollaboratorRo,
 } from '@teable/openapi';
 
 export const ReactQueryKeys = {
@@ -17,6 +18,8 @@ export const ReactQueryKeys = {
   base: (baseId: string) => ['base', baseId] as const,
 
   baseAll: () => ['base-all'] as const,
+
+  baseList: (spaceId: string) => ['base-list', spaceId] as const,
 
   pinList: () => ['pin-list'] as const,
 
@@ -50,7 +53,10 @@ export const ReactQueryKeys = {
       ? (['space-collaborator-list', spaceId, options] as const)
       : (['space-collaborator-list', spaceId] as const),
 
-  baseCollaboratorList: (baseId: string) => ['base-collaborator-list', baseId] as const,
+  baseCollaboratorList: (baseId: string, options?: ListBaseCollaboratorRo) =>
+    options
+      ? (['base-collaborator-list', baseId, options] as const)
+      : (['base-collaborator-list', baseId] as const),
 
   notifyList: (filter: { status: NotificationStatesEnum }) =>
     ['notification', 'list', filter] as const,
@@ -61,6 +67,8 @@ export const ReactQueryKeys = {
     ['group-points', tableId, query] as const,
   aggregations: (tableId: string, query: IAggregationRo) =>
     ['aggregations', tableId, query] as const,
+
+  shareView: (shareId: string) => ['share-view', shareId] as const,
 
   shareViewRowCount: (shareId: string, query: IShareViewRowCountRo) =>
     ['share-view-row-count', shareId, query] as const,
@@ -106,7 +114,7 @@ export const ReactQueryKeys = {
 
   getBaseTrashItems: (baseId: string) => ['base-trash-items', baseId] as const,
 
-  getDashboardList: () => ['dashboard-list'] as const,
+  getDashboardList: (baseId: string) => ['dashboard-list', baseId] as const,
 
   getDashboard: (dashboardId: string) => ['dashboard', dashboardId] as const,
 };
